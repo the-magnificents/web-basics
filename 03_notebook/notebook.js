@@ -18,17 +18,19 @@ class Cell {
             </textarea>
             <br><br>
          </form>
+         <p><strong>Output:</strong></p>
+         <p id="cell-output-`+ this.id +`"></br></p>
         <button class="mdc-button mdc-button--outlined"
-            onclick="run(cell__text__`+ this.id +`)"
+            onclick="run(`+ this.id +`,cell__text__`+ this.id +`)"
         >
             Run
         </button>
         <button class="mdc-button mdc-button--outlined"
-            onclick="removeCell('cell__`+ this.id + `')"
+            onclick="removeCell('cell-output`+ this.id + `')"
         >
             Delete
         </button>
-        <p></p>
+        
         </div>
         `
     }
@@ -42,10 +44,13 @@ function addCell(elementId){
     console.log('cellId is ' + cell.id);
 }
 
-function run(cell){
-    console.log("Working fine " + cell.id);
-    let code = document.getElementById(cell.id).value;
-    eval(code)
+function run(cellId, cellText){
+    let output;
+    console.log("Working fine " + cellText.id);
+    let code = document.getElementById(cellText.id).value;
+    eval("output = eval(code)");
+    cell_element = document.getElementById("cell-output-" + cellId)
+    cell_element.innerHTML = output;    
 }
 
 function removeCell(id){
