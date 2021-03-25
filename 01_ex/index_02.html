@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="parent">
+    <button id="1_button" onclick="mkContentBlock('child','Hola', 'Fulano', 'Mengano')">Add content block</button>
+    <button id="2_button" onclick="rmContentBlock(id)">Add content block</button>
+    <div id="child">
+    </div>
+    <script>
+        // Manage simple state of the document
+        idCounter = 0
+
+        // Add element with a certain format
+        function mkContentBlock(id, head, subhead, body) {
+            idCounter += 1
+            element = document.getElementById(id)
+            template = "<div id=cntBlock__" + idCounter + "><h1>" + head + "</ ><h3>" + subhead + "</h3><p>" + body + "</p></div > "
+            element.insertAdjacentHTML('afterend',template)
+        }
+
+        // Remove element using an id
+        function rmContentBlock(id) {
+            document.getElementById(id).remove();
+        }
+
+        function rmLast(list){
+            for (i = list.length - 1; i > 0; i--){
+                idCounter = idCounter - 1
+            }
+        }
+    </script>
+    <style>
+        .head1 {
+            color: brown;
+            size: 4rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .bg {
+            background-color: blanchedalmond;
+            padding: 1rem;
+        }
+    </style>
+
+</body>
+
+</html>
