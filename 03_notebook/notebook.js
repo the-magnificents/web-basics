@@ -26,7 +26,7 @@ class Cell {
             Run
         </button>
         <button class="mdc-button mdc-button--outlined"
-            onclick="removeCell('cell-output`+ this.id + `')"
+            onclick="removeCell('cell__`+ this.id + `')"
         >
             Delete
         </button>
@@ -54,6 +54,7 @@ function run(cellId, cellText){
 }
 
 function removeCell(id){
+    // console.log("This is the id: " + id)
     let cell_element = document.getElementById(id)
     cell_element.remove()
 }
