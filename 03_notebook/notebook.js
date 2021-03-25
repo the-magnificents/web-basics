@@ -1,27 +1,31 @@
-var cells = []
+let cells = []
+let listeners = []
 
 class Cell {
     constructor(cells) {
-      if (cells.length) { this.id = cells.length + 1 } else { this.id = 0 }
+      if (cells.length) { this.id = cells.length } else { this.id = 0 }
       this.content = 'console.log("Hello World")';
       this.isEditing = true // Substitutes the element and puts a form
       this.template = `
-        <form >
+        <form style="padding:1rem 1rem 0rem 0rem">
             <textarea id="`+ this.id +`" name="" rows="4" cols="50" style="text-align:left;">
             `+ this.content +`
             </textarea>
             <br><br>
          </form>
-        <button onclick="console.log('HelloWorld')">Add</button>
-        <button id=add__`+ this.id +`>Run</button>
+        <button id=add__`+ this.id +` onclick="run(add__`+ this.id +`)">Run</button>
       `
+    //   this.click = document.getElementById('add__' + this.id)
+    //   .addEventListener('click',function(){
+    //       console.log("Testing event listener in: cell " + this.id  )
+    //    });
     }
 
     run(){
-        let cell = document.getElementById(this.id)
-        console.log(cell)
-        // eval(this.content)
+        console.log("Cell responding")
+        eval(this.content)
     }
+
 
     setId(id){
         this.id = id
@@ -36,17 +40,12 @@ function addCell(elementId){
     cell = new Cell(cells)
     cells.push(cell)
     element = document.getElementById(elementId)
-    element.insertAdjacentHTML('afterend', cell.template)
-    cellId = cells.length
-    cell.setId(cellId)
-    document.addEventListener('click',function(e){
-        if(e.target.id == 'add__' + cellId){
-              console.log("Testing event listener")
-         }
-     });
+    element.insertAdjacentHTML('beforebegin', cell.template)
+    console.log('cellId is ' + cell.id)
 }
 
-function run(cellId){
-    cells[cellId].run()
+function run(cell){
+    console.log("Working fine " + cell.id)
+    // cells[cell.id].run()
 }
   
