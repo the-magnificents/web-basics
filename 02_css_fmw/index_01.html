@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="parent">
+    <button id="1_button" onclick="mkContentBlock('child','Title', 'Subtitle', 'Lorem ipsum, etcetera, etcetero')">Add element</button>
+    <button id="2_button" onclick="rmLastElement(idCounter)">Remove element</button>
+    <div id="child">
+    </div>
+    <script>
+        // Manage simple state of the document
+        idCounter = 0
+
+        // Add element with a certain format
+        function mkContentBlock(id, title, subtitle, content) {
+            idCounter += 1
+            element = document.getElementById(id)
+            template = "<div id=" + idCounter + "><h1>" + title +  "</ ><h3>" + subtitle +  "</h3><p>" + content +  "</p></div > "
+            element.insertAdjacentHTML('afterend',template)
+        }
+
+        // Remove element using an id
+        function rmLastElement(id) {
+            if(id <= 0){ return alert("There are no elements to erase")}
+            else {
+                document.getElementById(id).remove();
+                idCounter = idCounter - 1
+            }
+        }
+    </script>
+    <style>
+        .head1 {
+            color: brown;
+            size: 4rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .bg {
+            background-color: blanchedalmond;
+            padding: 1rem;
+        }
+    </style>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body class="mdc-typography" id="parent">
+    <button 
+        class="mdc-button mdc-button--unelevated" 
+        id="1_button"
+        onclick="mkContentBlock('child','Title', 'Subtitle', 'Lorem ipsum, etcetera, etcetero')"
+    >
+        Add element
+    </button>
+    <button 
+        class="mdc-button mdc-button--outlined" 
+        id="2_button" 
+        onclick="rmLastElement(idCounter)"
+    >
+        Remove element
+    </button>
+    <div id="child" style="padding:1rem">
+        <!-- Inside here the content will be created -->
+    </div>
+    
+    <script>
+        // Manage simple state of the document
+        idCounter = 0
+
+        // Add element with a certain format
+        function mkContentBlock(id, title, subtitle, content) {
+            idCounter += 1
+            element = document.getElementById(id)
+            template = `
+            <div class="mdc-card myCard" id=`+ idCounter +`>
+                    <div class="">
+                        <div class="mdc-title">
+                            <h1>`+ title +`</h1>
+                            <h2>`+ subtitle +`</h2> 
+                            <p>`+ content +`</p> 
+                        </div>
+                    </div>
+                </div>
+                
+                `
+            element.insertAdjacentHTML('afterend', template)
+            console.log("Count of elements: " + idCounter)
+        }
+
+        // Remove element using an id
+        function rmLastElement(id) {
+            if(id <= 0){ return alert("There are no elements to erase")}
+            else {
+                document.getElementById(id).remove();
+                idCounter = idCounter - 1
+            }
+        }
+    </script>
+    <style>
+        .myCard{
+            padding:1rem;
+            margin: 0 0rem 1rem 0rem;
+        }
+    </style>
+</body>
+
+</html>

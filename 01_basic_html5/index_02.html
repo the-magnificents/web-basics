@@ -10,8 +10,8 @@
 </head>
 
 <body id="parent">
-    <button id="1_button" onclick="mkContentBlock('child','Hola', 'Fulano', 'Mengano')">Add content block</button>
-    <button id="2_button" onclick="rmContentBlock(id)">Add content block</button>
+    <button id="1_button" onclick="mkContentBlock('child','Title', 'Subtitle', 'Lorem ipsum, etcetera, etcetero')">Add element</button>
+    <button id="2_button" onclick="rmLastElement(idCounter)">Remove element</button>
     <div id="child">
     </div>
     <script>
@@ -19,20 +19,18 @@
         idCounter = 0
 
         // Add element with a certain format
-        function mkContentBlock(id, head, subhead, body) {
+        function mkContentBlock(id, title, subtitle, content) {
             idCounter += 1
             element = document.getElementById(id)
-            template = "<div id=cntBlock__" + idCounter + "><h1>" + head + "</ ><h3>" + subhead + "</h3><p>" + body + "</p></div > "
+            template = "<div id=" + idCounter + "><h1>" + title +  "</ ><h3>" + subtitle +  "</h3><p>" + content +  "</p></div > "
             element.insertAdjacentHTML('afterend',template)
         }
 
         // Remove element using an id
-        function rmContentBlock(id) {
-            document.getElementById(id).remove();
-        }
-
-        function rmLast(list){
-            for (i = list.length - 1; i > 0; i--){
+        function rmLastElement(id) {
+            if(id <= 0){ return alert("There are no elements to erase")}
+            else {
+                document.getElementById(id).remove();
                 idCounter = idCounter - 1
             }
         }

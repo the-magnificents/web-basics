@@ -16,16 +16,13 @@ for (item = 0; item < list.length; item++) {document.write('<h3>Hello '+ list[it
 Discuss a bit what is going here
 
 ## Step 3 Reusing the function in HTML documents
-Events tags and functions
+Events tags and functions, see how they are handled, show simple examples.
 
 
 ## Step 4 Simple templates
-Make a template with some variables (isolated in a function)
+Make a template with some variables (isolated in a function) Explain how to alter the dom and what does that mean.
 ```js
-function mkContentBlock(head, subhead, body){
-    return "<h1>" + head + "</h1><h3>" + subhead + "</h3><p>"  + body + "</p>"
+function mkContentBlock(title, subtitle, content){
+    return "<h1>" + title +  "</h1><h3>" + subtitle +  "</h3><p>"  + content +  "</p>"
 }
 ```
-
-## Step 5 Templates and objects
-Make an object in javascript as an instance with its own state
