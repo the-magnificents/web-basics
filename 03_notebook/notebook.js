@@ -10,6 +10,7 @@ class Cell {
       <div>
         <form style="padding:1rem 1rem 0rem 0rem">
             <textarea 
+                class="code"
                 id="cell__`+ this.id +`" 
                 name="" rows="4" cols="50" 
                 style="width:100%;align-content:center; overflow:auto;">
@@ -35,8 +36,6 @@ function addCell(elementId){
 function run(cell){
     console.log("Working fine " + cell.id);
     let code = document.getElementById(cell.id).value;
-    function getOutput(){
-        return Function('"use strict"; return('+ code + ')')();
-    }
+    eval(code)
 }
   
