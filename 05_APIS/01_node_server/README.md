@@ -5,8 +5,6 @@ This starter kit contains everything you'll need to create your very own Node-ba
 
 Driven, as always, by the need to solve a problem I had on how to create a dummy API server that could return various bits of data in a realistic fashion (thus, removing the need to hard code everything), I went down the path of creating a dual project: one for the main React app I was using, with an attached API server using Express JS (i.e. this project).
 
-
-
 ## Using the API server
 
 I'll run over the basics here to get you up and running, but I wrote an [accompanying article](https://robkendal.co.uk/blog/how-to-build-a-restful-node-js-api-server-using-json-files/) on this very tool that is much more comprehensive and covers many more use cases. You can [read the full Node-based API server article](https://robkendal.co.uk/blog/how-to-build-a-restful-node-js-api-server-using-json-files/) on my website.

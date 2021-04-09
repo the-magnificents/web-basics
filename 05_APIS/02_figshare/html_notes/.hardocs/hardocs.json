@@ -1,0 +1,9 @@
+{
+  "id": "2adf5422-b78e-482c-be13-e8e0c4fce1a8",
+  "path": "D:\\RSE_Work\\DEMO\\web-basics\\05_APIS\\figshare",
+  "docsDir": "docs",
+  "entryFile": "index.html",
+  "name": "hardocs_notes",
+  "shortTitle": "Notes with images",
+  "updatedAt": "new Date().toISOString()"
+}
