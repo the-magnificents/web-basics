@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
 </head>
 <body>
-   <h1>Hello everyone</h1>
-   <h2>Lets represent a resource</h2> 
+   <h1 id="1">Hello everyone</h1>
+   <h2>Lets represent a resource</h2>
+   <button onclick="passMsg()" >Change text</button> 
+   <a href="./second_page.html">Go to second page</a>
+
+   <script>
+    let msg = "Hello world";
+    function passMsg(){
+        document.getElementById("1").innerHTML = msg
+    }
+    
+    </script>
 </body>
+
 </html>
